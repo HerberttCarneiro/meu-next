@@ -8,10 +8,9 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# copiar standalone corretamente
-RUN cp -r .next/standalone/* ./
-RUN cp -r .next/static ./.next/static
-RUN cp -r public ./public
+COPY .next/standalone ./
+COPY .next/static ./.next/static
+COPY public ./public
 
 EXPOSE 3000
 
